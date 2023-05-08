@@ -20,6 +20,7 @@ window.onmousedown = e => {
 
 window.onmouseup = () => {
   track.dataset.mouseDownAt = "0";
+  track.dataset.prevPercentage = track.dataset.percentage;
 }
 
 window.onmousemove = e => {
@@ -28,7 +29,13 @@ window.onmousemove = e => {
   const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
         maxDelta = window.innerWidth / 2;
   
-  const percentage = (mouseDelta / maxDelta) * 100;
+  const percentage = (mouseDelta / maxDelta) * -100,
+        nextPercentage = parseFloat(track.dataset.prevPercentage) + percentage;
+  
+  Math.min(nextPercentage, 0);
+  Math.max(nextPercentage, -100);
+  
+  track.dataset.percentage = nextPercentage;
   
   track.style.transform = `translate(${percentage}%, -50%)`;
 }
