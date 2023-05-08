@@ -10,3 +10,10 @@ const observer = new IntersectionObserver((entries) => {
 
 const hiddenElements = document.querySelectorAll('.hidden');
 hiddenElements.forEach((el) => observer.observe(el));
+
+
+const track = document.getElementById("image-track");
+
+window.onmousedown = e => {
+  track.dataset.mouseDownAt = e.clientX;
+}
