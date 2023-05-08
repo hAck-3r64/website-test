@@ -1,1 +1,19 @@
+@font-face {
+  font-family: "FranklinGothic";
+  src: url("FranklinGothic.ttf")
+}
 
+body {
+  background-color: #140041;
+  color: #ffffff;
+  font-family: 'FranklinGothic', FranklinGothic;
+  padding: 0;
+  margin: 0;
+}
+
+section {
+  display: grid
+    place-items: center;
+  align-content: center;
+  min-height: 100vh;
+}
